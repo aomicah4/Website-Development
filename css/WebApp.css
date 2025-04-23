@@ -1,0 +1,58 @@
+   body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .coin-result {
+      font-size: 3rem;
+      margin: 20px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #007BFF;
+      transition: transform 0.5s ease;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: back ground 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+  <h1>Flip a Coin!</h1>
+  <div class="coin-result" id="result">🪙</div>
+  <button onclick="flipCoin()">Flip</button>
+
+  <script>
+    function flipCoin() {
+      const resultEl = document.getElementById("result");
+      const outcomes = ["Heads", "Tails"];
+      const flip = outcomes[Math.floor(Math.random() * outcomes.length)];
+
+      // Optional: animate with a little flip effect
+      resultEl.style.transform = 'rotateY(360deg)';
+      setTimeout(() => {
+        resultEl.textContent = flip;
+        resultEl.style.transform = 'rotateY(0deg)';
+      }, 300);
+    }

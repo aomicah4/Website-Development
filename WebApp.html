@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flip a Coin</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #e0f7ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .coin {
+      font-size: 5rem;
+      margin: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    .result-text {
+      font-size: 2rem;
+      margin: 10px;
+      min-height: 40px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #023e8a;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Flip a Coin</h1>
+
+  <!-- Coin Icon -->
+  <div class="coin" id="coin">🪙</div>
+
+  <!-- Result Text -->
+  <div class="result-text" id="result"></div>
+
+  <!-- Button -->
+  <button onclick="flipCoin()">Flip Coin</button>
+
+
+  <script>
+    function flipCoin() {
+      const coinEl = document.getElementById("coin");
+      const resultEl = document.getElementById("result");
+      const outcomes = ["Heads", "Tails"];
+      const flip = outcomes[Math.floor(Math.random() * outcomes.length)];
+
+      // Animate coin
+      coinEl.style.transform = 'rotateY(360deg)';
+
+      setTimeout(() => {
+        resultEl.textContent = flip;
+        coinEl.style.transform = 'rotateY(0deg)';
+      }, 400);
+    }
+  </script>
+<br>
+<br>
+<br>
+	<a href="index.html" class="home-button">🏠 Home</a>
+<style>
+  .home-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    margin: 1rem 0;
+    color: navy;                 /* Navy text color */
+    background-color: white;     /* White background */
+    border: 2px solid navy;      /* Navy border */
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;       /* Remove underline */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .home-button:hover {
+    background-color: navy;      /* Navy background on hover */
+    color: white;                /* White text on hover */
+  }
+</style>
+</body>
+</html>
